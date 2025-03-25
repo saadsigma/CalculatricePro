@@ -1,22 +1,79 @@
-# Fichiers compilés de Python
-__pycache__/
-*.py[cod]
+#!/usr/bin/env python3
+"""
+Calculatrice Express
+Ce script propose une calculatrice en ligne de commande qui permet d'effectuer
+les opérations de base : addition, soustraction, multiplication et division.
+"""
 
-# Environnements virtuels
-env/
-venv/
-ENV/
+def addition(a, b):
+    """Retourne la somme de a et b."""
+    return a + b
 
-# Fichiers générés par l'IDE
-.vscode/
-.idea/
+def soustraction(a, b):
+    """Retourne la différence entre a et b."""
+    return a - b
 
-# Fichiers de distribution
-build/
-dist/
-*.egg-info/
+def multiplication(a, b):
+    """Retourne le produit de a et b."""
+    return a * b
 
-# Fichiers de test et logs
-.coverage
-.cache
+def division(a, b):
+    """Retourne le quotient de a divisé par b.
+    
+    Lève une erreur si b est égal à zéro.
+    """
+    if b == 0:
+        raise ValueError("Division par zéro non permise!")
+    return a / b
+
+def afficher_menu():
+    """Affiche le menu des opérations disponibles."""
+    print("\n--- Calculatrice Express ---")
+    print("1. Addition")
+    print("2. Soustraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Quitter")
+
+def main():
+    """Fonction principale qui exécute la calculatrice."""
+    while True:
+        afficher_menu()
+        choix = input("Choisissez une opération (1/2/3/4/5) : ")
+        
+        if choix == '5':
+            print("Au revoir!")
+            break
+
+        if choix not in ['1', '2', '3', '4']:
+            print("Choix invalide, veuillez réessayer.")
+            continue
+        
+        try:
+            nombre1 = float(input("Entrez le premier nombre : "))
+            nombre2 = float(input("Entrez le second nombre : "))
+        except ValueError:
+            print("Entrée invalide! Veuillez entrer des nombres.")
+            continue
+        
+        try:
+            if choix == '1':
+                resultat = addition(nombre1, nombre2)
+                operateur = "+"
+            elif choix == '2':
+                resultat = soustraction(nombre1, nombre2)
+                operateur = "-"
+            elif choix == '3':
+                resultat = multiplication(nombre1, nombre2)
+                operateur = "*"
+            elif choix == '4':
+                resultat = division(nombre1, nombre2)
+                operateur = "/"
+            
+            print(f"\nRésultat : {nombre1} {operateur} {nombre2} = {resultat}")
+        except Exception as e:
+            print(f"Erreur : {e}")
+
+if __name__ == "__main__":
+    main()
 

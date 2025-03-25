@@ -1,79 +1,65 @@
-#!/usr/bin/env python3
-"""
-Calculatrice Express
-Ce script propose une calculatrice en ligne de commande qui permet d'effectuer
-les opérations de base : addition, soustraction, multiplication et division.
-"""
+# Fichiers et dossiers spécifiques à Python
+__pycache__/
+*.py[cod]
+*$py.class
 
-def addition(a, b):
-    """Retourne la somme de a et b."""
-    return a + b
+# Environnements virtuels
+env/
+venv/
+ENV/
+.venv/
 
-def soustraction(a, b):
-    """Retourne la différence entre a et b."""
-    return a - b
+# Fichiers de configuration et de logs
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
 
-def multiplication(a, b):
-    """Retourne le produit de a et b."""
-    return a * b
+# Fichiers générés par les outils de build
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-def division(a, b):
-    """Retourne le quotient de a divisé par b.
-    
-    Lève une erreur si b est égal à zéro.
-    """
-    if b == 0:
-        raise ValueError("Division par zéro non permise!")
-    return a / b
+# Fichiers de test coverage
+.coverage
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
 
-def afficher_menu():
-    """Affiche le menu des opérations disponibles."""
-    print("\n--- Calculatrice Express ---")
-    print("1. Addition")
-    print("2. Soustraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Quitter")
+# Fichiers de profiling
+*.prof
 
-def main():
-    """Fonction principale qui exécute la calculatrice."""
-    while True:
-        afficher_menu()
-        choix = input("Choisissez une opération (1/2/3/4/5) : ")
-        
-        if choix == '5':
-            print("Au revoir!")
-            break
+# Fichiers de Jupyter Notebook
+.ipynb_checkpoints
 
-        if choix not in ['1', '2', '3', '4']:
-            print("Choix invalide, veuillez réessayer.")
-            continue
-        
-        try:
-            nombre1 = float(input("Entrez le premier nombre : "))
-            nombre2 = float(input("Entrez le second nombre : "))
-        except ValueError:
-            print("Entrée invalide! Veuillez entrer des nombres.")
-            continue
-        
-        try:
-            if choix == '1':
-                resultat = addition(nombre1, nombre2)
-                operateur = "+"
-            elif choix == '2':
-                resultat = soustraction(nombre1, nombre2)
-                operateur = "-"
-            elif choix == '3':
-                resultat = multiplication(nombre1, nombre2)
-                operateur = "*"
-            elif choix == '4':
-                resultat = division(nombre1, nombre2)
-                operateur = "/"
-            
-            print(f"\nRésultat : {nombre1} {operateur} {nombre2} = {resultat}")
-        except Exception as e:
-            print(f"Erreur : {e}")
+# Fichiers de l'éditeur de texte ou de l'IDE
+*.swp
+*.swo
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
 
-if __name__ == "__main__":
-    main()
-
+# Fichiers système
+.DS_Store
+Thumbs.db
